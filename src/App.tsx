@@ -1,12 +1,18 @@
-import React from 'react'
-import './App.css'
+import React, {useEffect} from 'react'
+import MainView from "./views/main.view"
+import useTelegram from "./hooks/useTelegram";
 
 function App() {
+  const {onReadyApp} = useTelegram()
+
+  useEffect(() => {
+    onReadyApp()
+  }, [onReadyApp])
+
   return (
     <div className="App">
-      <header className="App-header">
-        kek
-      </header>
+      <MainView/>
+      <a href="https://telegram.me/manqarium" className='author'>by vherasymenko</a>
     </div>
   )
 }
